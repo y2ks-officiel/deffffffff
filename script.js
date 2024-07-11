@@ -1,195 +1,193 @@
-document.write('<!DOCTYPE html>');
-document.write('<html lang="en">');
-document.write('<head>');
-document.write('    <meta charset="UTF-8">');
-document.write('    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
-document.write('    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
-document.write('    <title>Profil - White Hat</title>');
-document.write('    <style>');
-document.write('        body {');
-document.write('            font-family: \'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif;');
-document.write('            background-color: #1e272e;');
-document.write('            margin: 0;');
-document.write('            padding: 0;');
-document.write('            display: flex;');
-document.write('            align-items: center;');
-document.write('            justify-content: center;');
-document.write('            height: 100vh;');
-document.write('        }');
-document.write('');
-document.write('        #loader {');
-document.write('            position: fixed;');
-document.write('            top: 0;');
-document.write('            left: 0;');
-document.write('            width: 100%;');
-document.write('            height: 100%;');
-document.write('            background: radial-gradient(circle, #1e272e 0%, #111 100%);');
-document.write('            display: flex;');
-document.write('            flex-direction: column;');
-document.write('            align-items: center;');
-document.write('            justify-content: center;');
-document.write('            opacity: 1;');
-document.write('            z-index: 2;');
-document.write('            color: #fff;');
-document.write('        }');
-document.write('');
-document.write('        @keyframes fadeOut {');
-document.write('            from {');
-document.write('                opacity: 1;');
-document.write('            }');
-document.write('            to {');
-document.write('                opacity: 0;');
-document.write('                display: none;');
-document.write('            }');
-document.write('        }');
-document.write('');
-document.write('        #loader .progress-container {');
-document.write('            width: 150px;');
-document.write('            height: 150px;');
-document.write('            position: relative;');
-document.write('        }');
-document.write('');
-document.write('        #loader .progress-circle {');
-document.write('            width: 100%;');
-document.write('            height: 100%;');
-document.write('            border-radius: 50%;');
-document.write('            background: conic-gradient(#3498db 0%, #1e272e 0% 50%, #3498db 0%);');
-document.write('            transform: rotate(-90deg);');
-document.write('            position: absolute;');
-document.write('            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);');
-document.write('        }');
-document.write('');
-document.write('        #loader .filler-circle {');
-document.write('            width: 100%;');
-document.write('            height: 100%;');
-document.write('            border-radius: 50%;');
-document.write('            background-color: #1e272e;');
-document.write('            position: absolute;');
-document.write('            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);');
-document.write('            transform-origin: 50% 50%;');
-document.write('        }');
-document.write('');
-document.write('        #loader .progress-text {');
-document.write('            position: absolute;');
-document.write('            top: 50%;');
-document.write('            left: 50%;');
-document.write('            transform: translate(-50%, -50%);');
-document.write('            font-size: 24px;');
-document.write('            font-weight: bold;');
-document.write('        }');
-document.write('');
-document.write('        #loader .spinner {');
-document.write('            width: 40px;');
-document.write('            height: 40px;');
-document.write('            border: 4px solid rgba(255, 255, 255, 0.9);');
-document.write('            border-top: 4px solid #3498db;');
-document.write('            border-radius: 50%;');
-document.write('            animation: spin 1s linear infinite;');
-document.write('            position: absolute;');
-document.write('            top: 50%;');
-document.write('            left: 50%;');
-document.write('            transform: translate(-50%, -50%);');
-document.write('        }');
-document.write('');
-document.write('        @keyframes spin {');
-document.write('            0% {');
-document.write('                transform: rotate(0deg);');
-document.write('            }');
-document.write('            100% {');
-document.write('                transform: rotate(360deg);');
-document.write('            }');
-document.write('        }');
-document.write('');
-document.write('        .profile-container {');
-document.write('            text-align: center;');
-document.write('            background-color: #3498db;');
-document.write('            border-radius: 8px;');
-document.write('            padding: 20px;');
-document.write('            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);');
-document.write('            animation: fadeInUp 1s ease-out;');
-document.write('            color: #fff;');
-document.write('        }');
-document.write('');
-document.write('        @keyframes fadeInUp {');
-document.write('            from {');
-document.write('                opacity: 0;');
-document.write('                transform: translateY(20px);');
-document.write('            }');
-document.write('            to {');
-document.write('                opacity: 1;');
-document.write('                transform: translateY(0);');
-document.write('            }');
-document.write('        }');
-document.write('');
-document.write('        .profile-image {');
-document.write('            width: 150px;');
-document.write('            height: 150px;');
-document.write('            border-radius: 50%;');
-document.write('            object-fit: cover;');
-document.write('            animation: rotate 3s linear infinite;');
-document.write('        }');
-document.write('');
-document.write('        @keyframes rotate {');
-document.write('            to {');
-document.write('                transform: rotate(360deg);');
-document.write('            }');
-document.write('        }');
-document.write('');
-document.write('        h1 {');
-document.write('            color: #2c3e50;');
-document.write('            margin-top: 10px;');
-document.write('            font-size: 24px;');
-document.write('        }');
-document.write('');
-document.write('        p {');
-document.write('            color: #34495e;');
-document.write('            margin-top: 8px;');
-document.write('            font-size: 16px;');
-document.write('        }');
-document.write('    </style>');
-document.write('</head>');
-document.write('<body>');
-document.write('');
-document.write('    <div id="loader">');
-document.write('        <div class="progress-container">');
-document.write('            <div class="progress-circle"></div>');
-document.write('            <div class="filler-circle"></div>');
-document.write('            <div class="progress-text">Loading... 0%</div>');
-document.write('            <div class="spinner"></div>');
-document.write('        </div>');
-document.write('    </div>');
-document.write('');
-document.write('    <div class="profile-container">');
-document.write('        <img class="profile-image" src="https://ingrammicrolink.com/wp-content/uploads/2016/10/HiReswhitehat.png" alt="White Hat Image">');
-document.write('        <h1>yxxx777</h1>');
-document.write('        <p>deface by yxxx777</p>');
-document.write('    </div>');
-document.write('');
-document.write('    <script>');
-document.write('        // Simulate a delay for demonstration purposes');
-document.write('        setTimeout(() => {');
-document.write('            document.getElementById(\'loader\').style.display = \'none\';');
-document.write('        }, 2000); // Change 5000 to your actual loading time in milliseconds');
-document.write('');
-document.write('        // Update progress text');
-document.write('        const progressText = document.querySelector(\'.progress-text\');');
-document.write('        const startTime = Date.now();');
-document.write('');
-document.write('        function updateProgress() {');
-document.write('            const currentTime = Date.now();');
-document.write('            const elapsedTime = currentTime - startTime;');
-document.write('            const progress = Math.min(elapsedTime / 2000, 1); // 5000 is the total loading time in milliseconds');
-document.write('');
-document.write('            progressText.textContent = `Loading... ${Math.round(progress * 100)}%`;');
-document.write('');
-document.write('            if (progress < 1) {');
-document.write('                requestAnimationFrame(updateProgress);');
-document.write('            }');
-document.write('        }');
-document.write('');
-document.write('        updateProgress();');
-document.write('    </script>');
-document.write('</body>');
-document.write('</html>');
-document.write('');
-document.write('');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - White Hat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e272e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #1e272e 0%, #111 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            z-index: 2;
+            color: #fff;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        #loader .progress-container {
+            width: 150px;
+            height: 150px;
+            position: relative;
+        }
+
+        #loader .progress-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#3498db 0%, #1e272e 0% 50%, #3498db 0%);
+            transform: rotate(-90deg);
+            position: absolute;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+
+        #loader .filler-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #1e272e;
+            position: absolute;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transform-origin: 50% 50%;
+        }
+
+        #loader .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #loader .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-container {
+            text-align: center;
+            background-color: #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+            color: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #34495e;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="progress-container">
+            <div class="progress-circle"></div>
+            <div class="filler-circle"></div>
+            <div class="progress-text">Loading... 0%</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <img class="profile-image" src="https://ingrammicrolink.com/wp-content/uploads/2016/10/HiReswhitehat.png" alt="White Hat Image">
+        <h1>yxxx777</h1>
+        <p>deface by yxxx777</p>
+    </div>
+
+    <script>
+        // Simulate a delay for demonstration purposes
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+        }, 2000); // Change 5000 to your actual loading time in milliseconds
+
+        // Update progress text
+        const progressText = document.querySelector('.progress-text');
+        const startTime = Date.now();
+
+        function updateProgress() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / 2000, 1); // 5000 is the total loading time in milliseconds
+
+            progressText.textContent = `Loading... ${Math.round(progress * 100)}%`;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateProgress);
+            }
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
