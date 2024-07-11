@@ -1,1 +1,193 @@
-document.write("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Profil - White Hat<\/title>\r\n    <style>\r\n        body {\r\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n            background-color: #1e272e;\r\n            margin: 0;\r\n            padding: 0;\r\n            display: flex;\r\n            align-items: center;\r\n            justify-content: center;\r\n            height: 100vh;\r\n        }\r\n\r\n        #loader {\r\n            position: fixed;\r\n            top: 0;\r\n            left: 0;\r\n            width: 100%;\r\n            height: 100%;\r\n            background: radial-gradient(circle, #1e272e 0%, #111 100%);\r\n            display: flex;\r\n            flex-direction: column;\r\n            align-items: center;\r\n            justify-content: center;\r\n            opacity: 1;\r\n            z-index: 2;\r\n            color: #fff;\r\n        }\r\n\r\n        @keyframes fadeOut {\r\n            from {\r\n                opacity: 1;\r\n            }\r\n            to {\r\n                opacity: 0;\r\n                display: none;\r\n            }\r\n        }\r\n\r\n        #loader .progress-container {\r\n            width: 150px;\r\n            height: 150px;\r\n            position: relative;\r\n        }\r\n\r\n        #loader .progress-circle {\r\n            width: 100%;\r\n            height: 100%;\r\n            border-radius: 50%;\r\n            background: conic-gradient(#3498db 0%, #1e272e 0% 50%, #3498db 0%);\r\n            transform: rotate(-90deg);\r\n            position: absolute;\r\n            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);\r\n        }\r\n\r\n        #loader .filler-circle {\r\n            width: 100%;\r\n            height: 100%;\r\n            border-radius: 50%;\r\n            background-color: #1e272e;\r\n            position: absolute;\r\n            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);\r\n            transform-origin: 50% 50%;\r\n        }\r\n\r\n        #loader .progress-text {\r\n            position: absolute;\r\n            top: 50%;\r\n            left: 50%;\r\n            transform: translate(-50%, -50%);\r\n            font-size: 24px;\r\n            font-weight: bold;\r\n        }\r\n\r\n        #loader .spinner {\r\n            width: 40px;\r\n            height: 40px;\r\n            border: 4px solid rgba(255, 255, 255, 0.9);\r\n            border-top: 4px solid #3498db;\r\n            border-radius: 50%;\r\n            animation: spin 1s linear infinite;\r\n            position: absolute;\r\n            top: 50%;\r\n            left: 50%;\r\n            transform: translate(-50%, -50%);\r\n        }\r\n\r\n        @keyframes spin {\r\n            0% {\r\n                transform: rotate(0deg);\r\n            }\r\n            100% {\r\n                transform: rotate(360deg);\r\n            }\r\n        }\r\n\r\n        .profile-container {\r\n            text-align: center;\r\n            background-color: #3498db;\r\n            border-radius: 8px;\r\n            padding: 20px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\r\n            animation: fadeInUp 1s ease-out;\r\n            color: #fff;\r\n        }\r\n\r\n        @keyframes fadeInUp {\r\n            from {\r\n                opacity: 0;\r\n                transform: translateY(20px);\r\n            }\r\n            to {\r\n                opacity: 1;\r\n                transform: translateY(0);\r\n            }\r\n        }\r\n\r\n        .profile-image {\r\n            width: 150px;\r\n            height: 150px;\r\n            border-radius: 50%;\r\n            object-fit: cover;\r\n            animation: rotate 3s linear infinite;\r\n        }\r\n\r\n        @keyframes rotate {\r\n            to {\r\n                transform: rotate(360deg);\r\n            }\r\n        }\r\n\r\n        h1 {\r\n            color: #2c3e50;\r\n            margin-top: 10px;\r\n            font-size: 24px;\r\n        }\r\n\r\n        p {\r\n            color: #34495e;\r\n            margin-top: 8px;\r\n            font-size: 16px;\r\n        }\r\n    <\/style>\r\n<\/head>\r\n<body>\r\n\r\n    <div id=\"loader\">\r\n        <div class=\"progress-container\">\r\n            <div class=\"progress-circle\"><\/div>\r\n            <div class=\"filler-circle\"><\/div>\r\n            <div class=\"progress-text\">Loading... 0%<\/div>\r\n            <div class=\"spinner\"><\/div>\r\n        <\/div>\r\n    <\/div>\r\n\r\n    <div class=\"profile-container\">\r\n        <img class=\"profile-image\" src=\"https:\/\/ingrammicrolink.com\/wp-content\/uploads\/2016\/10\/HiReswhitehat.png\" alt=\"White Hat Image\">\r\n        <h1>yxxx777<\/h1>\r\n        <p>deface by yxxx777<\/p>\r\n    <\/div>\r\n\r\n    <script>\r\n        \/\/ Simulate a delay for demonstration purposes\r\n        setTimeout(() => {\r\n            document.getElementById('loader').style.display = 'none';\r\n        }, 2000); \/\/ Change 5000 to your actual loading time in milliseconds\r\n\r\n        \/\/ Update progress text\r\n        const progressText = document.querySelector('.progress-text');\r\n        const startTime = Date.now();\r\n\r\n        function updateProgress() {\r\n            const currentTime = Date.now();\r\n            const elapsedTime = currentTime - startTime;\r\n            const progress = Math.min(elapsedTime \/ 2000, 1); \/\/ 5000 is the total loading time in milliseconds\r\n\r\n            progressText.textContent = `Loading... ${Math.round(progress * 100)}%`;\r\n\r\n            if (progress < 1) {\r\n                requestAnimationFrame(updateProgress);\r\n            }\r\n        }\r\n\r\n        updateProgress();\r\n    <\/script>\r\n<\/body>\r\n<\/html>");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - White Hat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e272e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #1e272e 0%, #111 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            z-index: 2;
+            color: #fff;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        #loader .progress-container {
+            width: 150px;
+            height: 150px;
+            position: relative;
+        }
+
+        #loader .progress-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#3498db 0%, #1e272e 0% 50%, #3498db 0%);
+            transform: rotate(-90deg);
+            position: absolute;
+            clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+        }
+
+        #loader .filler-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #1e272e;
+            position: absolute;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transform-origin: 50% 50%;
+        }
+
+        #loader .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #loader .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-container {
+            text-align: center;
+            background-color: #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+            color: #fff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #34495e;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="progress-container">
+            <div class="progress-circle"></div>
+            <div class="filler-circle"></div>
+            <div class="progress-text">Loading... 0%</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <img class="profile-image" src="https://ingrammicrolink.com/wp-content/uploads/2016/10/HiReswhitehat.png" alt="White Hat Image">
+        <h1>yxxx777</h1>
+        <p>deface by yxxx777</p>
+    </div>
+
+    <script>
+        // Simulate a delay for demonstration purposes
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+        }, 2000); // Change 5000 to your actual loading time in milliseconds
+
+        // Update progress text
+        const progressText = document.querySelector('.progress-text');
+        const startTime = Date.now();
+
+        function updateProgress() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / 2000, 1); // 5000 is the total loading time in milliseconds
+
+            progressText.textContent = `Loading... ${Math.round(progress * 100)}%`;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateProgress);
+            }
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
